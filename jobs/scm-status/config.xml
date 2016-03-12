@@ -22,7 +22,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &apos;hello_world&apos;</command>
+      <command>cd /var/lib/jenkins/scm-sync-configuration/checkoutConfiguration
+git status</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
