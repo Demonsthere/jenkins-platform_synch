@@ -3,7 +3,7 @@
   <generation>1</generation>
   <compressionLevel>3</compressionLevel>
   <privateKeyLocation>/var/lib/jenkins/.ssh/id_rsa</privateKeyLocation>
-  <privateKeyPassword>68tvhY9MzudVKTggyxXjmQ==</privateKeyPassword>
+  <privateKeyPassword>leNwvs5FfEcGIkxZnRN67jnzAx0eaXB8s09ng9n/vRyiXdZzi4p57eFB2bC2HiA6</privateKeyPassword>
   <knownHostsLocation>/var/lib/jenkins/.ssh/known_hosts</knownHostsLocation>
   <authTokens/>
   <changelogEncoding>UTF-8</changelogEncoding>
