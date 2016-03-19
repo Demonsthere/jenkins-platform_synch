@@ -76,6 +76,9 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>docker-hello_world</string>
+        <string>hello_world</string>
+        <string>scm-status</string>
       </jobNames>
       <jobFilters/>
       <columns>
