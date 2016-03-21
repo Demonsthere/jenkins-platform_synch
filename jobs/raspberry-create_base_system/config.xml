@@ -48,11 +48,31 @@ chmod 666 *.img</command>
       <command># Zip it and upload to apache storage server
 FILE=$(basename &quot;*.img&quot;)
 NAME=$(basename $FILE .img)
-zip ${NAME}.zip ${FILE}
-scp ${NAME}.zip vagrant@192.168.42.100:/var/www/html/data/images</command>
+zip ${NAME}-base.zip ${FILE}
+chmod 666 *.zip
+scp ${NAME}-base.zip vagrant@192.168.42.100:/var/www/html/data/images</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>*.zip</artifacts>
+      <latestOnly>false</latestOnly>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.25">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
       <deleteDirs>false</deleteDirs>
