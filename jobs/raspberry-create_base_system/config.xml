@@ -40,7 +40,16 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sh masterBuilder.sh ${RELEASE}</command>
+      <command># Create base system
+sh masterBuilder.sh ${RELEASE}
+chmod 666 *.img</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command># Zip it and upload to apache storage server
+FILE=$(basename &quot;*.img&quot;)
+NAME=$(basename $FILE .img)
+zip ${NAME}.zip ${FILE}
+scp ${NAME}.zip vagrant@192.168.42.100:/var/www/html/data/images</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
