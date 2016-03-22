@@ -11,6 +11,11 @@
           <description></description>
           <defaultValue>vivid</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>BACKUP_TO_SERVER</name>
+          <description></description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -45,12 +50,14 @@ sh masterBuilder.sh ${RELEASE}
 chmod 666 *.img</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command># Zip it and upload to apache storage server
-FILE=$(basename &quot;*.img&quot;)
-NAME=$(basename $FILE .img)
-zip ${NAME}-base.zip ${FILE}
-chmod 666 *.zip
-scp ${NAME}-base.zip vagrant@192.168.42.100:/var/www/html/data/images</command>
+      <command>if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
+    # Zip it and upload to apache storage server
+    FILE=$(basename &quot;*.img&quot;)
+    NAME=$(basename $FILE .img)
+    zip ${NAME}-base.zip ${FILE}
+    chmod 666 *.zip
+    scp ${NAME}-base.zip vagrant@192.168.42.100:/var/www/html/data/images
+fi</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
