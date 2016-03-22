@@ -100,17 +100,10 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>raspberry-create_base_system</string>
       </jobNames>
       <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
+      <columns/>
       <recurse>false</recurse>
       <order class="com.smartcodeltd.jenkinsci.plugins.buildmonitor.order.ByName"/>
     </com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView>
