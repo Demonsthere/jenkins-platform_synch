@@ -9,7 +9,7 @@
         <hudson.model.StringParameterDefinition>
           <name>RELEASE</name>
           <description></description>
-          <defaultValue>vivid</defaultValue>
+          <defaultValue>trusty</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>BACKUP_TO_SERVER</name>
@@ -67,6 +67,7 @@ fi</command>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.25">
       <deleteDirs>false</deleteDirs>
