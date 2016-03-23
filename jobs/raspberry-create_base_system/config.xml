@@ -63,9 +63,10 @@ fi</command>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>*.zip</artifacts>
-      <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
     </hudson.tasks.ArtifactArchiver>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.25">
       <deleteDirs>false</deleteDirs>
