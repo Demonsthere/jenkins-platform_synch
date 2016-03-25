@@ -11,6 +11,11 @@
           <description></description>
           <defaultValue>trusty</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>REPOSITORY</name>
+          <description></description>
+          <defaultValue>http://ftp.pl.debian.org/debian</defaultValue>
+        </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>BACKUP_TO_SERVER</name>
           <description></description>
@@ -46,7 +51,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Create base system
-sh masterBuilder.sh ${RELEASE}
+sh masterBuilder.sh ${RELEASE} ${REPOSITORY}
 chmod 666 *.img</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
