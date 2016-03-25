@@ -13,12 +13,7 @@
         <hudson.model.StringParameterDefinition>
           <name>RELEASE</name>
           <description></description>
-          <defaultValue>jessie</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>REPOSITORY</name>
-          <description></description>
-          <defaultValue>http://ftp.pl.debian.org/debian</defaultValue>
+          <defaultValue>utopic</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>BACKUP_TO_SERVER</name>
