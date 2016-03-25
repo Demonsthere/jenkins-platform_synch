@@ -52,14 +52,15 @@
       <command># Create base system
 sh masterBuilder.sh ${RELEASE}
 chmod 666 *.img
-zip ${NAME}-base.zip ${FILE}
-chmod 666 *.zip</command>
+</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
-    # Zip it and upload to apache storage server
-    FILE=$(basename &quot;*.img&quot;)
-    NAME=$(basename $FILE .img)
+      <command># Zip it and upload to apache storage server
+FILE=$(basename &quot;*.img&quot;)
+NAME=$(basename $FILE .img)
+zip ${NAME}-base.zip ${FILE}
+chmod 666 *.zip
+if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
     scp ${NAME}-base.zip vagrant@192.168.42.100:/var/www/html/data/images
 fi</command>
     </hudson.tasks.Shell>
