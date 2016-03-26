@@ -13,7 +13,7 @@
         <hudson.model.StringParameterDefinition>
           <name>RELEASE</name>
           <description></description>
-          <defaultValue>utopic</defaultValue>
+          <defaultValue>wily</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>BACKUP_TO_SERVER</name>
