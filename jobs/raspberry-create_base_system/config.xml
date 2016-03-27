@@ -56,7 +56,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Create base system
-sh builder.sh ${RELEASE}
+sudo sh builder.sh ${RELEASE}
 chmod 666 *.img
 </command>
     </hudson.tasks.Shell>
