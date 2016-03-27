@@ -57,7 +57,8 @@
     <hudson.tasks.Shell>
       <command># Create base system
 sudo sh builder.sh ${RELEASE}
-chmod 666 *.img
+sudo chown jenkins:jenkins *.img
+sudo chmod 666 *.img
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
