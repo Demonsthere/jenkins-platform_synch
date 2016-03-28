@@ -33,7 +33,7 @@
 export DISPLAY=:42
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/images/nano/latest/
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
-echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
+echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress-a9 --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 mkdir sysFiles
 fdisk -l *.img &gt; sectors.txt
 Start=&quot;$(tail -n 2 sectors.txt | awk &apos;{print $2}&apos;)&quot;
