@@ -36,7 +36,7 @@ wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.lina
 echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress-a9 --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 mkdir sysFiles
 fdisk -l *.img &gt; sectors.txt
-Start=&quot;$(tail -n 2 sectors.txt | awk &apos;{print $2}&apos;)&quot;
+Start=&quot;$(cat sectors.txt | tail -n 1 | awk {&apos;print $2&apos;})&quot;
 SIZE=$(($Start * 512))
 echo $SIZE
 sudo mount -o loop,offset=$SIZE -t auto vexpress.img sysFiles/
