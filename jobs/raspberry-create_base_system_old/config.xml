@@ -13,7 +13,7 @@
         <hudson.model.StringParameterDefinition>
           <name>RELEASE</name>
           <description></description>
-          <defaultValue>vivid</defaultValue>
+          <defaultValue>utopic</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>BACKUP_TO_SERVER</name>
@@ -50,7 +50,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Create base system
-sudo sh builder.sh ${RELEASE}
+sudo sh masterBuilder.sh ${RELEASE}
 sudo chown jenkins:jenkins *.img
 sudo chmod 666 *.img
 </command>
