@@ -32,7 +32,7 @@
       <command>sudo Xvfb :41 -ac &amp;
 export DISPLAY=:41
 
-wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-arm64/latest/
+wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-armhf/latest/
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
 echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 
@@ -49,7 +49,9 @@ sudo umount sysFiles/
 sudo chown jenkins:jenkins vmlinuz* initrd*
 
 zip qemu-kernel-files_debian.zip vmlinuz* initrd*
-rm *.gz *img vm*</command>
+rm *.gz *img vm*
+
+sudo pkill Xvfb</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
