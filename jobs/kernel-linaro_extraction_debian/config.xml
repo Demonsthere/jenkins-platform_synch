@@ -48,7 +48,7 @@ sudo cp sysFiles/boot/initrd* .
 sudo umount sysFiles/
 sudo chown jenkins:jenkins vmlinuz* initrd*
 
-zip qemu-kernel-files.zip vmlinuz* initrd*
+zip qemu-kernel-files_debian.zip vmlinuz* initrd*
 rm *.gz *img vm*</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
