@@ -53,7 +53,7 @@ rm *.gz *img vm*</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
-    scp *.zip vagrant@192.168.42.100:/var/www/html/data/images
+    scp *.zip vagrant@192.168.24.100:/var/www/html/data/images
 fi</command>
     </hudson.tasks.Shell>
   </builders>
