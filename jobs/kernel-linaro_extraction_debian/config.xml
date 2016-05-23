@@ -15,16 +15,6 @@
           <description></description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>SYSTEM</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>debian</string>
-              <string>ubuntu</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -42,7 +32,7 @@
       <command>sudo Xvfb :41 -ac &amp;
 export DISPLAY=:41
 
-wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/images/nano/latest/
+wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-arm64/latest/
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
 echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress-a9 --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 
