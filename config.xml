@@ -33,6 +33,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>packer-run_testrun</string>
       </jobNames>
       <jobFilters/>
       <columns>
