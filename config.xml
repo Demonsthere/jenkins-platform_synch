@@ -118,6 +118,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>kernel-linaro_extraction_debian</string>
         <string>kernel-linaro_extraction_ubuntu</string>
+        <string>raspberry-get_raspbian</string>
       </jobNames>
       <jobFilters/>
       <columns>
