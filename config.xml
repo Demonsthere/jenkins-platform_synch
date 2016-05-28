@@ -108,6 +108,27 @@
       <recurse>false</recurse>
       <order class="com.smartcodeltd.jenkinsci.plugins.buildmonitor.order.ByName"/>
     </com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>system_req</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
   </views>
   <primaryView>All</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
