@@ -44,7 +44,7 @@ SIZE=$(($Start * 512))
 echo $SIZE
 sudo mount -o loop,offset=$SIZE -t auto vexpress.img sysFiles/
 sudo cp sysFiles/boot/vmlinuz-* . 
-sudo cp sysFiles/boot/initrd-* .
+sudo cp sysFiles/boot/initrd.img-* .
 sudo umount sysFiles/
 sudo chown jenkins:jenkins vmlinuz* initrd*
 
