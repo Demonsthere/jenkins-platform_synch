@@ -35,7 +35,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Get base image
-wget -r zip http://downloads.raspberrypi.org/raspbian/images/raspbian-${VERSION}/
+wget -r -q --no-parent -nH --cut-dirs 3 -e robots=off -A zip http://downloads.raspberrypi.org/raspbian/images/raspbian-${VERSION}/
 unzip *.zip
 rm *.zip
 
