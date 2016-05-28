@@ -15,7 +15,6 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
-  <slaves/>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
@@ -100,6 +99,8 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>kernel-linaro_extraction_debian</string>
+        <string>kernel-linaro_extraction_ubuntu</string>
         <string>raspberry-create_base_system</string>
       </jobNames>
       <jobFilters/>
