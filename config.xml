@@ -141,6 +141,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>docker-raspberry_vlc</string>
       </jobNames>
       <jobFilters/>
       <columns>
