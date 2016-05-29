@@ -58,7 +58,7 @@ sudo umount system
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Zip &amp; ship
-zip raspbian-${DATE}.zip *.img 
+zip raspbian-${VERSION}.zip *.img 
 rm *.img
 
 if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
