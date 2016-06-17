@@ -162,7 +162,7 @@
   </views>
   <primaryView>All</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
-  <label></label>
+  <label>master</label>
   <nodeProperties/>
   <globalNodeProperties/>
 </hudson>
