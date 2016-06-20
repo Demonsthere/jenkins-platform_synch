@@ -66,6 +66,7 @@ rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Init packer variables
+export QEMU_AUDIO_DRV=none
 sh variableFileBuilder.sh *.img vmlinuz-* initrd* none
 packer build -var-file=variables.json Hello_world.json
 </command>
