@@ -36,7 +36,6 @@
   <builders>
     <hudson.tasks.Shell>
       <command>sudo Xvfb :41 -ac &amp;
-export DISPLAY=:41
 
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-armhf/latest/
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
@@ -84,5 +83,11 @@ fi</command>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+      <info>
+        <propertiesContent>DISPLAY=:41</propertiesContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
