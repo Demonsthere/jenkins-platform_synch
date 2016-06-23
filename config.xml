@@ -37,7 +37,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>packer-run_testrun</string>
+        <string>packer-run_hello-world</string>
       </jobNames>
       <jobFilters/>
       <columns>
