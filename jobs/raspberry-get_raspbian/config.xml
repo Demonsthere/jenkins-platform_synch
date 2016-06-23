@@ -18,7 +18,7 @@
         <hudson.model.StringParameterDefinition>
           <name>VERSION</name>
           <description></description>
-          <defaultValue>2016-05-13</defaultValue>
+          <defaultValue>2016-05-31</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
