@@ -10,11 +10,16 @@
     </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.BooleanParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
           <name>DEBUG</name>
           <description></description>
-          <defaultValue>false</defaultValue>
-        </hudson.model.BooleanParameterDefinition>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -75,7 +80,6 @@ rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Init packer variables
-export QEMU_AUDIO_DRV=none
 sh variableFileBuilder.sh *.img vmlinuz-* initrd* none
 packer build -var-file=variables.json Hello_world.json
 </command>
@@ -104,5 +108,12 @@ packer build -var-file=variables.json Hello_world.json
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+      <info>
+        <propertiesContent>QEMU_AUDIO_DRV=none
+PACKER_LOG=&quot;${DEBUG}&quot;</propertiesContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
