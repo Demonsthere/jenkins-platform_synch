@@ -20,6 +20,16 @@
           <description></description>
           <defaultValue>2016-05-31</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>FLAVOUR</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>raspbian_lite</string>
+              <string>raspbian</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -36,7 +46,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Get base image
-wget -r -q --no-parent -nH --cut-dirs 3 -e robots=off -A zip http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-${VERSION}/
+wget -r -q --no-parent -nH --cut-dirs 3 -e robots=off -A zip http://downloads.raspberrypi.org/${FLAVOUR}/images/${FLAVOUR}-${VERSION}/
 unzip *.zip
 rm *.zip
 
@@ -54,12 +64,17 @@ SIZE=$(($Start * 512))
 sudo mount *.img -o loop,offset=${SIZE} system
 sudo sed -i &apos;1s/^/#/&apos; system/etc/ld.so.preload
 cat system/etc/ld.so.preload
+
+# Add ssh key
+sudo mkdir -p system/home/pi/.ssh
+sudo chown -R pi:pi system/home/pi/.ssh
+sudo cat ${HOME}/.ssh/id_rsa.pub &gt;&gt; system/home/pi/.ssh
 sudo umount system
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Zip &amp; ship
-zip raspbian-${VERSION}.zip *.img 
+zip raspbian-${FLAVOUR}-${VERSION}.zip *.img 
 rm *.img
 
 if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
