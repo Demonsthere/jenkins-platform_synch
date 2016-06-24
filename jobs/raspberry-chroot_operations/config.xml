@@ -71,6 +71,7 @@ sudo mount *.img -o loop,offset=${SIZE} system
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Launch pre-bootstrap scripts
+R=$(pwd)/system
 sudo cp *.sh system/
 sudo chroot $R ./hello_world.sh</command>
     </hudson.tasks.Shell>
@@ -107,11 +108,5 @@ fi</command>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
-      <info>
-        <propertiesContent>R=$(pwd)/system</propertiesContent>
-        <loadFilesFromMaster>false</loadFilesFromMaster>
-      </info>
-    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
