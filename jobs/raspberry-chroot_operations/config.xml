@@ -55,7 +55,7 @@
     <hudson.tasks.Shell>
       <command># Unzip artifacts
 unzip *.zip
-export DUPA=TAK
+basename $(pwd)/*.img | cut -d. -f1 &gt; basename
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
@@ -83,7 +83,7 @@ sudo umount system</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Zip &amp; ship
-zip ${FLAVOUR}-${VERSION}.zip *.img 
+zip $(cat basename).zip *.img 
 rm *.img
 
 if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
