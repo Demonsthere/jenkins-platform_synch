@@ -74,7 +74,9 @@ sudo mount *.img -o loop,offset=${SIZE} system
       <command># Launch pre-bootstrap scripts
 R=$(pwd)/system
 sudo cp *.sh system/
-sudo chroot $R ./hello_world.sh</command>
+
+sudo chroot $R ./hello_world.sh
+sudo chroot $R ./partition_rebuild.sh</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Unmount the system files
