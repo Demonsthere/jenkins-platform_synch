@@ -55,10 +55,12 @@
     <hudson.tasks.Shell>
       <command># Unzip artifacts
 unzip *.zip
+export DUPA=TAK
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command># Calculate second partition start
+      <command>env
+# Calculate second partition start
 mkdir system
 fdisk -l *.img &gt; sectors.txt
 Start=&quot;$(cat sectors.txt | tail -n 1 | awk {&apos;print $2&apos;})&quot;
