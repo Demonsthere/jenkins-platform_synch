@@ -65,13 +65,10 @@ sudo mount *.img -o loop,offset=${SIZE} system
 sudo sed -i &apos;1s/^/#/&apos; system/etc/ld.so.preload
 cat system/etc/ld.so.preload
 
-# Add ssh key
-#sudo mkdir -p system/home/pi/.ssh
-#sudo chown -R pi:pi system/home/pi/.ssh
-#sudo cat ${HOME}/.ssh/id_rsa.pub &gt;&gt; system/home/pi/.ssh/known_hosts
+# Add qemu static binary
+sudo cp /usr/bin/qemu-arm-static system/usr/bin/
 
-sudo umount system
-</command>
+sudo umount system</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Zip &amp; ship
