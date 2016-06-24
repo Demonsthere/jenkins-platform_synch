@@ -59,8 +59,7 @@ basename $(pwd)/*.zip | cut -d. -f1 &gt; basename
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>env
-# Calculate second partition start
+      <command># Calculate second partition start
 mkdir system
 fdisk -l *.img &gt; sectors.txt
 Start=&quot;$(cat sectors.txt | tail -n 1 | awk {&apos;print $2&apos;})&quot;
