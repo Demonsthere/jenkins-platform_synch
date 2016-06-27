@@ -95,7 +95,7 @@ fi</command>
           <configs class="empty-list"/>
           <projects>raspberry-chroot_operations, </projects>
           <condition>SUCCESS</condition>
-          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerWithNoParameters>true</triggerWithNoParameters>
         </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
       </configs>
     </hudson.plugins.parameterizedtrigger.BuildTrigger>
