@@ -81,7 +81,7 @@ R=$(pwd)/system
 sudo cp *.sh system/
 
 sudo chroot $R ./hello_world.sh
-</command>
+sudo chroot $R ./setup_ssh.sh</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Unmount the system files
