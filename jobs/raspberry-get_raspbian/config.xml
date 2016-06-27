@@ -17,7 +17,7 @@
         </hudson.model.BooleanParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>VERSION</name>
-          <description></description>
+          <description>http://downloads.raspberrypi.org/${FLAVOUR}/images</description>
           <defaultValue>2016-05-31</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
