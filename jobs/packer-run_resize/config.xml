@@ -80,6 +80,10 @@ unzip *.zip
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
+      <command># Resize image
+qemu-img resize *.img +4GB</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
       <command># Init packer variables
 sh variableFileBuilder.sh *.img vmlinuz-* initrd* none
 packer build -force -var-file=variables.json Resize_Partition.json
