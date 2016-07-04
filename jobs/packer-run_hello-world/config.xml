@@ -45,7 +45,7 @@
       </hudson.plugins.git.GitSCM>
     </scms>
   </scm>
-  <assignedNode>vm_slave</assignedNode>
+  <assignedNode>platform_vm</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
