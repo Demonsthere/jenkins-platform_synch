@@ -38,6 +38,7 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>packer-run_hello-world</string>
+        <string>packer-run_resize</string>
       </jobNames>
       <jobFilters/>
       <columns>
