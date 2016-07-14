@@ -1,12 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <com.cloudbees.plugins.flow.BuildFlow plugin="build-flow-plugin@0.17">
+  <actions/>
+  <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>Raspbian_Version</name>
+          <description></description>
+          <defaultValue>2016-05-31</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>Raspbian_Flavour</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>raspbian_lite</string>
+              <string>raspbian</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Disc_Resize</name>
+          <description></description>
+          <defaultValue>2GB</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Packer_Project</name>
+          <description></description>
+          <defaultValue>Hello_world</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
-  <canRoam>true</canRoam>
+  <assignedNode>vm_slave</assignedNode>
+  <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
@@ -16,5 +52,19 @@
   <publishers/>
   <buildWrappers/>
   <icon/>
+  <dsl>// Get env variables 
+Version = build.environment.get(&quot;Raspbian_Version&quot;)
+Flavour = build.environment.get(&quot;Raspbian_Flavour&quot;)
+Resize = build.environment.get(&quot;Disc_Resize&quot;)
+Project = build.environment.get(&quot;Packer_Project&quot;)
+
+// Run the tasks and feed the varaibles
+parallel (
+  {build(&quot;kernel-linaro_extraction_debian&quot;)},
+  {build(&quot;raspberry-get_raspbian&quot;, VERSION: &quot;$&quot;, FLAVOUR: &quot;$&quot;)}
+  )
+build(&quot;packer-run_resize&quot;, RESIZE: &quot;$&quot;)
+build(&quot;packer-run_Project&quot;, PROJECT: &quot;$&quot;)
+</dsl>
   <buildNeedsWorkspace>false</buildNeedsWorkspace>
 </com.cloudbees.plugins.flow.BuildFlow>
