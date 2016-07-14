@@ -59,7 +59,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.34">
-      <project>raspberry-get_raspbian</project>
+      <project>packer-run_resize</project>
       <filter>*.zip</filter>
       <target></target>
       <excludes></excludes>
