@@ -3,7 +3,7 @@
   <scm class="hudson.plugins.scm_sync_configuration.scms.ScmSyncGitSCM"/>
   <scmRepositoryUrl>scm:git:git@github.com:Demonsthere/jenkins-platform_synch.git</scmRepositoryUrl>
   <scmGitBranch>master</scmGitBranch>
-  <noUserCommitMessage>false</noUserCommitMessage>
+  <noUserCommitMessage>true</noUserCommitMessage>
   <displayStatus>true</displayStatus>
   <commitMessagePattern>[message]</commitMessagePattern>
   <manualSynchronizationIncludes/>
