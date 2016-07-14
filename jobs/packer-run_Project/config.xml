@@ -21,9 +21,9 @@
           </choices>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>RESIZE</name>
+          <name>PROJECT</name>
           <description></description>
-          <defaultValue>2GB</defaultValue>
+          <defaultValue>Hello_world</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -86,13 +86,9 @@ unzip *.zip
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command># Resize image
-qemu-img resize *.img +${RESIZE}</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
       <command># Init packer variables
 sh variableFileBuilder.sh *.img vmlinuz-* initrd* none
-packer build -force -var-file=variables.json Resize_Partition.json
+packer build -force -var-file=variables.json ${PROJECT}.json
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
