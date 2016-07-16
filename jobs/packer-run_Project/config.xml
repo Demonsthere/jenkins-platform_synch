@@ -88,7 +88,8 @@ rm *.zip</command>
     <hudson.tasks.Shell>
       <command># Prepare config files
 mv validation.pem files/
-mv init_node.json files/</command>
+mv init_node.json files/
+mv client.pem files/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Init packer variables
@@ -122,7 +123,7 @@ rm *.img</command>
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper plugin="copy-to-slave@1.4.4">
-      <includes>validation.pem, init_node.json</includes>
+      <includes>validation.pem, init_node.json, client.pem</includes>
       <excludes></excludes>
       <flatten>false</flatten>
       <includeAntExcludes>false</includeAntExcludes>
