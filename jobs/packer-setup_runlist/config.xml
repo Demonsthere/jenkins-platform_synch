@@ -30,7 +30,8 @@
 	}
 }
 EOF
-cat init_node.json</command>
+cat init_node.json
+cat validation.pem</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
@@ -44,12 +45,12 @@ cat init_node.json</command>
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper plugin="copy-to-slave@1.4.4">
-      <includes>/etc/chef/validation.pem</includes>
+      <includes>validation.pem</includes>
       <excludes></excludes>
       <flatten>false</flatten>
       <includeAntExcludes>false</includeAntExcludes>
       <hudsonHomeRelative>false</hudsonHomeRelative>
-      <relativeTo>workspace</relativeTo>
+      <relativeTo>userContent</relativeTo>
     </com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
   </buildWrappers>
 </project>
