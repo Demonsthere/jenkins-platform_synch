@@ -34,7 +34,7 @@ EOF
 cat init_node.json
 
 # move it to shared directory
-mv init_node.json ${JENKINS_HOME}/userContent/init_node.json</command>
+mv init_node.json ${JENKINS_HOME}/userContent/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
