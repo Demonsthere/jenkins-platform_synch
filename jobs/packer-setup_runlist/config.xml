@@ -1,7 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
+  <actions/>
+  <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty/>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
@@ -12,7 +19,37 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cat &lt;&lt; EOF &gt; init_node.json
+{
+	&quot;run_list&quot;:[
+		&quot;recipe[env_platform::master]&quot;
+	],
+	&quot;platform_jenkins&quot;:{
+		&quot;apache&quot;:{
+			&quot;url&quot;:&quot;apache.pitux.ovh&quot;,
+			&quot;port&quot;:&quot;80&quot;
+		},
+		&quot;master&quot;:{
+			&quot;port&quot;:&quot;9080&quot;,
+			&quot;jenkins_full_url&quot;:&quot;http://jenkins.pitux.ovh:9080&quot;
+		}
+	}
+}
+
+cat init_node.json</command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers/>
-  <buildWrappers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
+      <colorMapName>xterm</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+  </buildWrappers>
 </project>
