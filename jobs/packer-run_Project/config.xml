@@ -86,6 +86,11 @@ unzip *.zip
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
+      <command># Prepare config files
+mv validation.pem files/
+mv init_node.json files/</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
       <command># Init packer variables
 sh variableFileBuilder.sh *.img vmlinuz-* initrd* none
 packer build -force -var-file=variables.json ${PROJECT}.json
@@ -116,6 +121,14 @@ rm *.img</command>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper plugin="copy-to-slave@1.4.4">
+      <includes>validation.pem, init_node.json</includes>
+      <excludes></excludes>
+      <flatten>false</flatten>
+      <includeAntExcludes>false</includeAntExcludes>
+      <hudsonHomeRelative>false</hudsonHomeRelative>
+      <relativeTo>userContent</relativeTo>
+    </com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@1.92.1">
       <info>
         <propertiesContent>QEMU_AUDIO_DRV=none
