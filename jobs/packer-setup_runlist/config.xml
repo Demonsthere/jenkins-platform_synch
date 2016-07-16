@@ -23,17 +23,10 @@
       <command>cat &lt;&lt; EOF &gt; init_node.json
 {
 	&quot;run_list&quot;:[
-		&quot;recipe[env_platform::master]&quot;
+		&quot;recipe[raspberry_base]&quot;
 	],
-	&quot;platform_jenkins&quot;:{
-		&quot;apache&quot;:{
-			&quot;url&quot;:&quot;apache.pitux.ovh&quot;,
-			&quot;port&quot;:&quot;80&quot;
-		},
-		&quot;master&quot;:{
-			&quot;port&quot;:&quot;9080&quot;,
-			&quot;jenkins_full_url&quot;:&quot;http://jenkins.pitux.ovh:9080&quot;
-		}
+	&quot;raspberry_base&quot;:{
+		&quot;user&quot;:&quot;pi&quot;
 	}
 }
 EOF
@@ -50,5 +43,10 @@ cat init_node.json</command>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@1.92.1">
+      <info>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
