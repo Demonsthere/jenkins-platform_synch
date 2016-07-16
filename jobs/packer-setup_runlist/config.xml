@@ -20,7 +20,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cat &lt;&lt; EOF &gt; init_node.json
+      <command># create chef init_node file
+cat &lt;&lt; EOF &gt; init_node.json
 {
 	&quot;run_list&quot;:[
 		&quot;recipe[raspberry_base]&quot;
@@ -31,7 +32,9 @@
 }
 EOF
 cat init_node.json
-cat validation.pem</command>
+
+# move it to shared directory
+mv init_node.json ${JENKINS_HOME}/userContent</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
