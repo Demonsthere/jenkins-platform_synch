@@ -49,7 +49,7 @@ cat init_node.json</command>
       <flatten>false</flatten>
       <includeAntExcludes>false</includeAntExcludes>
       <hudsonHomeRelative>false</hudsonHomeRelative>
-      <relativeTo>userContent</relativeTo>
+      <relativeTo>workspace</relativeTo>
     </com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
   </buildWrappers>
 </project>
