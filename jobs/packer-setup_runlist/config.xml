@@ -34,7 +34,7 @@ EOF
 cat init_node.json
 
 # move it to shared directory
-mv init_node.json ${JENKINS_HOME}/userContent</command>
+mv init_node.json ${JENKINS_HOME}/userContent/init_node.json</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
@@ -47,13 +47,5 @@ mv init_node.json ${JENKINS_HOME}/userContent</command>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.4.1">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper plugin="copy-to-slave@1.4.4">
-      <includes>validation.pem</includes>
-      <excludes></excludes>
-      <flatten>false</flatten>
-      <includeAntExcludes>false</includeAntExcludes>
-      <hudsonHomeRelative>false</hudsonHomeRelative>
-      <relativeTo>userContent</relativeTo>
-    </com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
   </buildWrappers>
 </project>
