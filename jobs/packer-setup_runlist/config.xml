@@ -27,7 +27,10 @@ cat &lt;&lt; EOF &gt; init_node.json
 		&quot;recipe[raspberry_base]&quot;
 	],
 	&quot;raspberry_base&quot;:{
-		&quot;user&quot;:&quot;pi&quot;
+		&quot;user&quot;:&quot;pi&quot;,
+        &quot;config&quot;:{
+        	&quot;swap_dir&quot;:&quot;/var/swap&quot;
+        }
 	}
 }
 EOF
