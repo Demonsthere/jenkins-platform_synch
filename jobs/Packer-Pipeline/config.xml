@@ -59,10 +59,10 @@ Resize = build.environment.get(&quot;Disc_Resize&quot;)
 Project = build.environment.get(&quot;Packer_Project&quot;)
 
 // Run the tasks and feed the varaibles
-/*parallel (
+parallel (
   {build(&quot;kernel-linaro_extraction_debian&quot;)},
   {build(&quot;raspberry-get_raspbian&quot;, VERSION: &quot;$Version&quot;, FLAVOUR: &quot;$Flavour&quot;)},
-  )*/
+  )
 parallel (
   {build(&quot;packer-setup_runlist&quot;)},
   {build(&quot;packer-run_resize&quot;, RESIZE: &quot;$Resize&quot;)}
