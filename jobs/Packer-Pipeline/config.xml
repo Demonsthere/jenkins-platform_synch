@@ -33,7 +33,7 @@
         <hudson.model.StringParameterDefinition>
           <name>Packer_Project</name>
           <description></description>
-          <defaultValue>Hello_world</defaultValue>
+          <defaultValue>Run_Chef</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>Do_Prepare</name>
