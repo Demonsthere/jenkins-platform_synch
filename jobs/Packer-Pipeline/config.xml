@@ -66,7 +66,7 @@ Preparation = build.environment.get(&quot;Do_Prepare&quot;)
 
 // Run the tasks and feed the varaibles
 // Rerun preparation suite if needed
-if (Preparation) {
+if (Preparation == true) {
   parallel (
   {build(&quot;kernel-linaro_extraction_debian&quot;)},
   {build(&quot;raspberry-get_raspbian&quot;, VERSION: &quot;$Version&quot;, FLAVOUR: &quot;$Flavour&quot;)},
