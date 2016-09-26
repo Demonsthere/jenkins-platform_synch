@@ -109,10 +109,7 @@ packer build -force -var-file=variables.json Hello_world.json
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@1.92.1">
       <info>
-        <propertiesContent>QEMU_AUDIO_DRV=none
-if [ &quot;$DEBUG&quot; = &quot;yes&quot; ] then;
-  PACKER_LOG=&quot;${DEBUG}&quot;
-fi</propertiesContent>
+        <propertiesContent>QEMU_AUDIO_DRV=none</propertiesContent>
         <loadFilesFromMaster>false</loadFilesFromMaster>
       </info>
     </EnvInjectBuildWrapper>
