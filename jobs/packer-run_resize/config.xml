@@ -122,8 +122,7 @@ rm *.img</command>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@1.92.1">
       <info>
-        <propertiesContent>QEMU_AUDIO_DRV=none
-PACKER_LOG=&quot;${DEBUG}&quot;</propertiesContent>
+        <propertiesContent>QEMU_AUDIO_DRV=none</propertiesContent>
         <loadFilesFromMaster>false</loadFilesFromMaster>
       </info>
     </EnvInjectBuildWrapper>
