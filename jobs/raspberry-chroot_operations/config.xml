@@ -15,11 +15,6 @@
           <description></description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>RESIZE</name>
-          <description></description>
-          <defaultValue>1GB</defaultValue>
-        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -75,7 +70,6 @@ fdisk -l *.img &gt; sectors.txt
 Start=&quot;$(cat sectors.txt | grep .img2 | awk {&apos;print $2&apos;})&quot;
 SIZE=$(($Start * 512))
 
-sudo qemu-img resize *.img +${RESIZE}
 sudo mount *.img -o loop,offset=${SIZE} system
 
 </command>
