@@ -65,6 +65,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>chef-platform_apache</string>
         <string>chef-platform_base</string>
+        <string>chef-platform_jenkins</string>
       </jobNames>
       <jobFilters/>
       <columns>
