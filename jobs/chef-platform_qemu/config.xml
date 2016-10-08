@@ -15,7 +15,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:Demonsthere/chef-platform_base.git</url>
+        <url>git@github.com:Demonsthere/chef-platform_qemu.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
