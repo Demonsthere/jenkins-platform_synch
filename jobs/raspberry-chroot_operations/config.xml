@@ -81,7 +81,7 @@ sudo cp *.sh system/
 
 sudo chroot $R ./hello_world.sh
 sudo chroot $R ./setup_ssh.sh
-# sudo chroot $R ./get_packages.sh
+sudo chroot $R ./get_packages.sh
 # sudo chroot $R ./get_docker.sh
 </command>
     </hudson.tasks.Shell>
