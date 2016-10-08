@@ -72,8 +72,8 @@ rm *.zip</command>
       <command># Calculate second partition start
 mkdir system
 fdisk -l *.img &gt; sectors.txt
-Start=&quot;$(cat sectors.txt | tail -n 1 | awk {&apos;print $2&apos;})&quot;
-SIZE=$(($Start * 512))
+Start=&quot;$(cat sectors.txt | grep .img2 | awk {&apos;print $2&apos;})&quot;
+SIZE=$(($Start * 512)
 
 sudo qemu-img resize *.img ${RESIZE}
 sudo mount *.img -o loop,offset=${SIZE} system
