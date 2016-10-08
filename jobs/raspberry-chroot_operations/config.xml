@@ -18,7 +18,7 @@
         <hudson.model.StringParameterDefinition>
           <name>RESIZE</name>
           <description></description>
-          <defaultValue>+1GB</defaultValue>
+          <defaultValue>1GB</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -73,9 +73,9 @@ rm *.zip</command>
 mkdir system
 fdisk -l *.img &gt; sectors.txt
 Start=&quot;$(cat sectors.txt | grep .img2 | awk {&apos;print $2&apos;})&quot;
-SIZE=$(($Start * 512)
+SIZE=$(($Start * 512))
 
-sudo qemu-img resize *.img ${RESIZE}
+sudo qemu-img resize *.img +${RESIZE}
 sudo mount *.img -o loop,offset=${SIZE} system
 
 </command>
