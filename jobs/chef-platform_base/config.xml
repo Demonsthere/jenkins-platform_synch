@@ -41,7 +41,16 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>kitchen test</command>
+      <command># Check code quality
+rubocop .</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command># Execute cookbook
+kitchen test</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command># Upload to chefserver
+berks upload</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
