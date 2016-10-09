@@ -15,6 +15,16 @@
           <description></description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>VERSION</name>
+          <description>Kernel file version</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>stable</string>
+              <string>latest</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.25"/>
@@ -37,8 +47,13 @@
     <hudson.tasks.Shell>
       <command>sudo Xvfb :41 -ac &amp;
 
-wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-armhf/latest/
-wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
+if [[ &quot;$VERSION&quot; != &quot;latest&quot; ]]; then
+  VERSION=&quot;16.06&quot;
+  echo $VERSION
+fi
+
+wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-armhf/${VERSION}/
+wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/${VERSION}/
 echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 
 mkdir sysFiles
