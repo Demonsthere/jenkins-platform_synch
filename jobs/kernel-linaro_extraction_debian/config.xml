@@ -53,7 +53,7 @@ if [[ &quot;$VERSION&quot; != &quot;latest&quot; ]]; then
 fi
 
 wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/debian/images/developer-armhf/${VERSION}/
-wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/${VERSION}/
+wget -r -q --no-parent -nH --cut-dirs 4 -e robots=off -A gz http://releases.linaro.org/ubuntu/hwpacks/lsk-vexpress/latest/
 echo y | sudo linaro-media-create --image_file vexpress.img --dev vexpress --binary linaro-*.tar.gz --hwpack hwpack_linaro-*.tar.gz
 
 mkdir sysFiles
