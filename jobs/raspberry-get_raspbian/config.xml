@@ -36,8 +36,7 @@
     <org.jvnet.hudson.plugins.shelveproject.ShelveProjectProperty plugin="shelve-project-plugin@1.5"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
-  <assignedNode>swarm</assignedNode>
-  <canRoam>false</canRoam>
+  <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
@@ -76,7 +75,7 @@ zip ${FLAVOUR}-${VERSION}.zip *.img
 rm *.img
 
 if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
-    scp *.zip vagrant@192.168.24.100:/var/www/html/data/images
+    scp *.zip root@apache.pitux.ovh:/var/www/html/data/images
 fi</command>
     </hudson.tasks.Shell>
   </builders>
