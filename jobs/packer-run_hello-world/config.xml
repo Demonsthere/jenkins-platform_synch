@@ -93,12 +93,12 @@ rm *.zip</command>
     </hudson.plugins.copyartifact.CopyArtifact>
     <hudson.tasks.Shell>
       <command># Unpack kernel files
-# unzip *.zip
+unzip *.zip
 rm *.zip</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>wget http://apache.pitux.ovh/data/qemu/initrd.img-3.10.79.0-1-linaro-lsk-vexpress
-wget http://apache.pitux.ovh/data/qemu/vmlinuz-3.10.79.0-1-linaro-lsk-vexpress</command>
+      <command># wget http://apache.pitux.ovh/data/qemu/initrd.img-3.10.79.0-1-linaro-lsk-vexpress
+# wget http://apache.pitux.ovh/data/qemu/vmlinuz-3.10.79.0-1-linaro-lsk-vexpress</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Init packer variables
