@@ -66,16 +66,9 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.34">
-      <project>raspberry-get_raspbian</project>
-      <filter>*.zip</filter>
-      <target></target>
-      <excludes></excludes>
-      <selector class="hudson.plugins.copyartifact.StatusBuildSelector"/>
-      <doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
-    </hudson.plugins.copyartifact.CopyArtifact>
     <hudson.tasks.Shell>
       <command># Unpack image
+wget http://apache.pitux.ovh/data/images/raspbian-2016-09-28-rasbian_ssh.zip
 unzip *.zip 
 basename $(pwd)/*.zip | cut -d. -f1 &gt; artifact_name
 rm *.zip</command>
