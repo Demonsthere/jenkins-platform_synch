@@ -18,11 +18,6 @@
     </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.BooleanParameterDefinition>
-          <name>BACKUP_TO_SERVER</name>
-          <description></description>
-          <defaultValue>false</defaultValue>
-        </hudson.model.BooleanParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>VERSION</name>
           <description>http://downloads.raspberrypi.org/${FLAVOUR}/images</description>
@@ -83,21 +78,11 @@ sudo umount system</command>
 zip ${FLAVOUR}-${VERSION}.zip *.img 
 rm *.img
 
-if [ &quot;${BACKUP_TO_SERVER}&quot; = true ] ; then
-    scp *.zip root@apache.pitux.ovh:/var/www/html/data/images
-fi</command>
+scp *.zip root@apache.pitux.ovh:/var/www/html/data/images/
+</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.ArtifactArchiver>
-      <artifacts>raspbian*.zip</artifacts>
-      <allowEmptyArchive>false</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
-      <fingerprint>false</fingerprint>
-      <defaultExcludes>true</defaultExcludes>
-      <caseSensitive>true</caseSensitive>
-    </hudson.tasks.ArtifactArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
       <deleteDirs>false</deleteDirs>
