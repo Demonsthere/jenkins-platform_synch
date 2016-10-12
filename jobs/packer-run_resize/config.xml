@@ -98,7 +98,7 @@ packer build -force -var-file=variables.json Resize_Partition.json
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Packer the artifact
-zip $(cat artifact_name).zip *.img 
+zip $(cat artifact_name)-resized_${RESIZE}.zip *.img 
 rm *.img</command>
     </hudson.tasks.Shell>
   </builders>
