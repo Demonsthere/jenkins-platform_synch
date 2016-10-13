@@ -68,7 +68,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Unpack image
-wget http://apache.pitux.ovh/data/images/raspbian-2016-09-28-rasbian_ssh.zip
+wget -q http://apache.pitux.ovh/data/images/raspbian-2016-09-28-rasbian_ssh.zip
 unzip *.zip 
 basename $(pwd)/*.zip | cut -d. -f1 &gt; artifact_name
 rm *.zip</command>
