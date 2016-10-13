@@ -78,7 +78,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command># Get stable image
-wget http://apache.pitux.ovh/data/images/raspbian-2016-09-28-rasbian_ssh.zip
+wget -q http://apache.pitux.ovh/data/images/raspbian-2016-09-28-rasbian_ssh.zip
 # Unpack image
 unzip *.zip 
 rm *.zip</command>
