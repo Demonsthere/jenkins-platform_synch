@@ -106,21 +106,16 @@ packer build -force -var-file=variables.json ${PROJECT}.json
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command># Packer the artifact
-zip $(cat artifact_name).zip *.img 
+      <command># Pack the artifact
+zip $(cat artifact_name)-provisioned.zip *.img 
 rm *.img</command>
     </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command># Zip &amp; ship
+scp *.zip root@apache.pitux.ovh:/var/www/html/data/images/</command>
+    </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.ArtifactArchiver>
-      <artifacts>*.zip</artifacts>
-      <allowEmptyArchive>false</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
-      <fingerprint>false</fingerprint>
-      <defaultExcludes>true</defaultExcludes>
-      <caseSensitive>true</caseSensitive>
-    </hudson.tasks.ArtifactArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.25">
       <deleteDirs>false</deleteDirs>
