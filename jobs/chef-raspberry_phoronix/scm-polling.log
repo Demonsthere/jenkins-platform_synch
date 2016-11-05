@@ -1,0 +1,8 @@
+Started on Nov 5, 2016 6:46:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision be1d2e0a501a3fee879569943419c8be961f8d24 (refs/remotes/origin/master)
+ > git --version # timeout=10
+ > git -c core.askpass=true ls-remote -h git@github.com:Demonsthere/chef-raspberry_phoronix.git master # timeout=10
+[poll] Latest remote head revision is: aaa2c5398520eba3394b36d267b2e03bd6eda346
+Done. Took 2 sec
+Changes found

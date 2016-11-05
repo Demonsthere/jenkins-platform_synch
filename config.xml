@@ -66,9 +66,9 @@
         <string>chef-platform_apache</string>
         <string>chef-platform_base</string>
         <string>chef-platform_jenkins</string>
-        <string>chef-platform_phoronix</string>
         <string>chef-platform_qemu</string>
         <string>chef-raspberry_base</string>
+        <string>chef-raspberry_phoronix</string>
       </jobNames>
       <jobFilters/>
       <columns>
