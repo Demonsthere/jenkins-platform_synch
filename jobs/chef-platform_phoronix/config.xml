@@ -15,7 +15,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git@github.com:Demonsthere/chef-raspberry_base.git</url>
+        <url>git@github.com:Demonsthere/chef-raspberry_phoronix.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -46,7 +46,7 @@ rubocop .</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Execute cookbook
-kitchen test</command>
+kitchen test vm</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command># Upload to chefserver
