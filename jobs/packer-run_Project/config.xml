@@ -18,16 +18,6 @@
     </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>DEBUG</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>no</string>
-              <string>yes</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>PROJECT</name>
           <description></description>
@@ -135,8 +125,7 @@ scp *.zip root@apache.pitux.ovh:/var/www/html/data/images/</command>
     </com.michelin.cio.hudson.plugins.copytoslave.CopyToSlaveBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@1.92.1">
       <info>
-        <propertiesContent>QEMU_AUDIO_DRV=none
-PACKER_LOG=&quot;${DEBUG}&quot;</propertiesContent>
+        <propertiesContent>QEMU_AUDIO_DRV=none</propertiesContent>
         <loadFilesFromMaster>false</loadFilesFromMaster>
       </info>
     </EnvInjectBuildWrapper>
