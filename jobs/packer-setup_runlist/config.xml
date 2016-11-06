@@ -21,16 +21,28 @@
   <builders>
     <hudson.tasks.Shell>
       <command># create chef init_node file
+#cat &lt;&lt; EOF &gt; init_node.json
+#{
+#	&quot;run_list&quot;:[
+#		&quot;recipe[raspberry_base]&quot;
+#	],
+#	&quot;raspberry_base&quot;:{
+#		&quot;user&quot;:&quot;pi&quot;,
+#        &quot;config&quot;:{
+#        	&quot;swap_dir&quot;:&quot;/var/swap&quot;
+#        }
+#	}
+#}
+#EOF
+
 cat &lt;&lt; EOF &gt; init_node.json
 {
 	&quot;run_list&quot;:[
-		&quot;recipe[raspberry_base]&quot;
+		&quot;recipe[raspberry_phoronix]&quot;
 	],
-	&quot;raspberry_base&quot;:{
+	&quot;raspberry_phoronix&quot;:{
 		&quot;user&quot;:&quot;pi&quot;,
-        &quot;config&quot;:{
-        	&quot;swap_dir&quot;:&quot;/var/swap&quot;
-        }
+        &quot;set_sources&quot;:&quot;false&quot;
 	}
 }
 EOF
