@@ -42,7 +42,7 @@ cat &lt;&lt; EOF &gt; init_node.json
 	],
 	&quot;raspberry_phoronix&quot;:{
 		&quot;user&quot;:&quot;pi&quot;,
-        &quot;set_sources&quot;:&quot;false&quot;
+		&quot;set_sources&quot;:&quot;false&quot;
 	}
 }
 EOF
